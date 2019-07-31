@@ -1,0 +1,18 @@
+Compiled from "Myfinal.java"
+public class Myfinal {
+  public Myfinal();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: bipush        12
+       7: putfield      #2                  // Field qq:I
+      10: return
+
+  public static void main(java.lang.String[]);
+    Code:
+       0: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       3: ldc           #5                  // String Final.
+       5: invokevirtual #6                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+       8: return
+}
