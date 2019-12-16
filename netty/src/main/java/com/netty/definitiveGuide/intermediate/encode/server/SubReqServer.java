@@ -18,7 +18,9 @@ import io.netty.handler.logging.LoggingHandler;
 
 public class SubReqServer {
 
+public static void dd(String ... arg){
 
+}
 
     public void bind(int port) throws Exception{
         //配置服务端NIO线程组
@@ -29,7 +31,6 @@ public class SubReqServer {
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workGroup = new NioEventLoopGroup();
 
-
         try{
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup,workGroup)
@@ -37,11 +38,14 @@ public class SubReqServer {
                     .option(ChannelOption.SO_BACKLOG,1024)
                     .option(ChannelOption.SO_REUSEADDR, true)
                     .option(ChannelOption.SO_KEEPALIVE, false)
+
                     .option(ChannelOption.SO_SNDBUF, 65535)
-                    .option(ChannelOption.SO_RCVBUF,65535)
+                    .option(ChannelOption.SO_RCVBUF,65535)//64kb
                     .childOption(ChannelOption.TCP_NODELAY, true)
+
                     .childOption(ChannelOption.ALLOCATOR,new PooledByteBufAllocator(false))
                     .localAddress(port)
+
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
@@ -67,5 +71,6 @@ public class SubReqServer {
     public static void main(String[] args) throws Exception {
         int port = 8808;
         new TimeServer().bind(port);
+        SubReqServer.dd("a","b");
     }
 }

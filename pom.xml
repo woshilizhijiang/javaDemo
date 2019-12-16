@@ -17,6 +17,7 @@
         <module>jedis</module>
         <module>kafka</module>
         <module>jdk</module>
+        <module>jdk1.7</module>
     </modules>
 
     <dependencies>
@@ -33,6 +34,10 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.8</version>
         </dependency>
+
+
+
+
     </dependencies>
 
 
