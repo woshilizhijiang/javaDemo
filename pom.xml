@@ -14,7 +14,6 @@
         <module>akka</module>
         <module>disruptor</module>
         <module>dynamicProxy</module>
-        <module>jedis</module>
         <module>kafka</module>
         <module>jdk</module>
         <module>jdk1.7</module>
