@@ -10,9 +10,10 @@
         <module name="disruptor" />
         <module name="dynamicProxy" />
         <module name="jdk" />
-        <module name="jedis" />
+        <module name="jdk1.7" />
         <module name="kafka" />
         <module name="netty" />
+        <module name="redisclient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="8" />

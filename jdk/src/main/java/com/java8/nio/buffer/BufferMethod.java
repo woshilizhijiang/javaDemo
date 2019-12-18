@@ -16,7 +16,7 @@ public class BufferMethod {
 //        byte[] bytes = new byte[]{1,2,3,'a','b','c','a','b','c','a','b','c'};
         //Exception in thread "main" java.nio.BufferOverflowException
         // 缓存区溢出
-        ByteBuffer buffer = ByteBuffer.allocate(10);
+        ByteBuffer buffer = ByteBuffer.allocate(22);
         String value = "Netty权威指南";
 
         System.out.println("Bytes: " + value.getBytes().length);
