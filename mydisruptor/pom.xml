@@ -9,13 +9,15 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sigar</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>org.hyperic</groupId>
-            <artifactId>sigar</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-    </dependencies>
+    <artifactId>mydisruptor</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>com.lmax</groupId>
+            <artifactId>disruptor</artifactId>
+            <version>3.4.2</version>
+        </dependency>
+
+    </dependencies>
 </project>
