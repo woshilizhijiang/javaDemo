@@ -17,6 +17,8 @@
         <module>kafka</module>
         <module>jdk</module>
         <module>jdk1.7</module>
+        <module>excel</module>
+        <module>sigar</module>
     </modules>
 
     <dependencies>
@@ -27,15 +29,26 @@
             <version>3.6.1</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.8</version>
+            <version>1.2.67</version>
         </dependency>
-
-
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.9</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.3</version>
+        </dependency>
 
     </dependencies>
 

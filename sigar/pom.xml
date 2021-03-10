@@ -9,7 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>jdk</artifactId>
-
+    <artifactId>sigar</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>org.hyperic</groupId>
+            <artifactId>sigar</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+    </dependencies>
 
 </project>

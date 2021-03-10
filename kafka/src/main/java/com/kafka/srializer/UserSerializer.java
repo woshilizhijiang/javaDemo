@@ -1,7 +1,8 @@
 package com.kafka.srializer;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.kafka.common.serialization.Serializer;
-import org.codehaus.jackson.map.ObjectMapper;
+
 
 import java.util.Map;
 
