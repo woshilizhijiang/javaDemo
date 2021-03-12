@@ -1,3 +1,4 @@
+/*
 package mycom.stream;
 
 //import com.google.common.collect.ImmutableList;
@@ -10,6 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+*/
 /**
  *
  * Stream它并不是一个容器，它只是对容器的功能进行了增强，
@@ -28,7 +30,8 @@ import java.util.stream.Stream;
  * 一个Steam
  *
  * Created by 20013649 on 2020/6/28.
- */
+ *//*
+
 public class StreamTest {
 
     //如何创建Stream
@@ -173,4 +176,4 @@ class Peo{
     public void setMoney(List<String> money) {
         this.money = money;
     }
-}
+}*/

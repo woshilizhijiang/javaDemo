@@ -1,3 +1,4 @@
+/*
 package pkg;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -15,56 +16,72 @@ import java.util.Map;
 public class RSAUtils {
 
 
-    /**
+    */
+/**
      * 加密算法RSA
-     */
+     *//*
+
     public static final String KEY_ALGORITHM = "RSA";
 
 
     public static final String RSA_ALGORITHM = "RSA/None/PKCS1Padding";
 
-    /**
+    */
+/**
      * 签名算法
-     */
+     *//*
+
     public static final String SIGNATURE_ALGORITHM = "MD5withRSA";
 
-    /**
+    */
+/**
      * 获取公钥的key
-     */
+     *//*
+
     private static final String PUBLIC_KEY = "RSAPublicKey";
 
-    /**
+    */
+/**
      * 获取私钥的key
-     */
+     *//*
+
     private static final String PRIVATE_KEY = "RSAPrivateKey";
 
-    /**
+    */
+/**
      * RSA最大加密明文大小
-     */
+     *//*
+
     private static final int MAX_ENCRYPT_BLOCK = 64;
 
-    /**
+    */
+/**
      * RSA最大解密密文大小
-     */
+     *//*
+
     private static final int MAX_DECRYPT_BLOCK = 75;
 
-    /**
+    */
+/**
      * RSA密钥长度
-     */
+     *//*
+
     private static final int INITIAL_KEY_SIZE = 600;
 
     static{
         Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
     }
 
-    /**
+    */
+/**
      * <p>
      * 生成密钥对(公钥和私钥)
      * </p>
      *
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static Map<String, Object> genKeyPair()  {
         KeyPairGenerator keyPairGen=null;
         try {
@@ -82,7 +99,8 @@ public class RSAUtils {
         return keyMap;
     }
 
-    /**
+    */
+/**
      * <p>
      * 用私钥对信息生成数字签名
      * </p>
@@ -92,7 +110,8 @@ public class RSAUtils {
      *
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String sign(byte[] data, String privateKey)  {
         try{
             byte[] keyBytes = Base64Utils.decode(privateKey);
@@ -108,7 +127,8 @@ public class RSAUtils {
         }
     }
 
-    /**
+    */
+/**
      * <p>
      * 校验数字签名
      * </p>
@@ -120,7 +140,8 @@ public class RSAUtils {
      * @return
      * @throws Exception
      *
-     */
+     *//*
+
     public static boolean verify(byte[] data, String publicKey, String sign)
     {
         try{
@@ -139,7 +160,8 @@ public class RSAUtils {
         return false;
     }
 
-    /**
+    */
+/**
      * <P>
      * 私钥解密
      * </p>
@@ -148,7 +170,8 @@ public class RSAUtils {
      * @param privateKey 私钥(BASE64编码)
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String decryptByPrivateKey(String encrypted, String privateKey)
              {
         try
@@ -185,7 +208,8 @@ public class RSAUtils {
         }
     }
 
-    /**
+    */
+/**
      * <p>
      * 公钥解密
      * </p>
@@ -194,7 +218,8 @@ public class RSAUtils {
      * @param publicKey 公钥(BASE64编码)
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String decryptByPublicKey(String encrypted, String publicKey)
            {
          try{
@@ -230,7 +255,8 @@ public class RSAUtils {
          }
     }
 
-    /**
+    */
+/**
      * <p>
      * 公钥加密
      * </p>
@@ -239,7 +265,8 @@ public class RSAUtils {
      * @param publicKey 公钥(BASE64编码)
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String encryptByPublicKey(String source, String publicKey)
           {
          try{
@@ -276,7 +303,8 @@ public class RSAUtils {
          }
     }
 
-    /**
+    */
+/**
      * <p>
      * 私钥加密
      * </p>
@@ -285,7 +313,8 @@ public class RSAUtils {
      * @param privateKey 私钥(BASE64编码)
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String encryptByPrivateKey(String source, String privateKey)
     {
         try{
@@ -321,7 +350,8 @@ public class RSAUtils {
         }
     }
 
-    /**
+    */
+/**
      * <p>
      * 获取私钥
      * </p>
@@ -329,7 +359,8 @@ public class RSAUtils {
      * @param keyMap 密钥对
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String getPrivateKey(Map<String, Object> keyMap)
           {
          try {
@@ -340,7 +371,8 @@ public class RSAUtils {
          }
     }
 
-    /**
+    */
+/**
      * <p>
      * 获取公钥
      * </p>
@@ -348,7 +380,8 @@ public class RSAUtils {
      * @param keyMap 密钥对
      * @return
      * @throws Exception
-     */
+     *//*
+
     public static String getPublicKey(Map<String, Object> keyMap) {
         try {
         Key key = (Key) keyMap.get(PUBLIC_KEY);
@@ -385,13 +418,15 @@ public class RSAUtils {
         //String privateKey = "MIIBhQIBADANBgkqhkiG9w0BAQEFAASCAW8wggFrAgEAAkwAjTe+OVQKZb4nw/CW8D8OeYqzQK0J4x4e9w0XY2JArf88RDsMN6ET89Htb9rHlCSdnOwSgxVaAymplY1xBKlLKlTP3n9i937amF0bAgMBAAECS3uNiM3pnIs12t7Q0Y5y7PwkAP8WJi9ivB7UgmD+pq5VQGpF60NvymwFqD6ZqGHG123hvn5w06ddrKe1v79OqBCM6NBLyRjr/7w6uQImDDj5od1mGqCpnP2tMYyXs+1PlK2X3cpDSMvPsO+StYUNce6WezcCJguNydJSNlywJRitOXv4qk1R2+fLh5f7azPTpW2TPUMkvkBn1Yc9AiYLncKy8cZunC9Xg0kthF9Ro8M0nN9u7SKRdxLHKIoYdoHWvFjMdQImAqA8IXgb8N7732rnaLywgBg9waXpcGptB/9vVsMjJlKAhwTSbAUCJgvcAmxAgsorx8qXakuMGpqwcNvqJX29Vy4VGoUG4NiLIbMBV0hr";
         //System.out.println(RSAUtils.encryptByPrivateKey(sign, privateKey));
 
-    	/*String s = "{\"User\":{\"CertId\":\"12223\",\"UserName\":\"wusir\"},\"BillId\":\"13912975757\",\"RegionId\":\"1\",\"OfferList\":[{\"OfferCode\":\"1\",\"OfferValue\":\"1\"},{\"OfferCode\":\"2\",\"OfferValue\":\"2\"}]}";
+    	*/
+/*String s = "{\"User\":{\"CertId\":\"12223\",\"UserName\":\"wusir\"},\"BillId\":\"13912975757\",\"RegionId\":\"1\",\"OfferList\":[{\"OfferCode\":\"1\",\"OfferValue\":\"1\"},{\"OfferCode\":\"2\",\"OfferValue\":\"2\"}]}";
     	String publicKey = "MGcwDQYJKoZIhvcNAQEBBQADVgAwUwJMAKV8zS3MIrJKbPMyFer9G6AgygPoeDWSdzKAikFK5ipoXeFXyXfQ5Fh6Zpo3Qz382dzyHYWR64mfPqRVIItBSbuWcwt2a8qsXT2bZwIDAQAB";
     	System.out.println(encryptByPublicKey(s, publicKey));
 
     	s = "IkFk1AJkJiqXSReyTpIX+cNh652+dVdnEUoeFPxKvOGVOv+sYRgBvujMqmX+6JdJXZuLgVzm/x8RrAX1faLlHhyVZ9s7ygsPS86w";
 		String key = "MGcwDQYJKoZIhvcNAQEBBQADVgAwUwJMAJHCBuhFPRbwimst6n3OrisXvKz+RqcCI5pMuzyxOqbAxkO2F4DLFpw50L3Zv13kjIx4EZzNjO9yQ71U2v54h8Gmdd0as+3+BUh4gQIDAQAB";
-		System.out.println(decryptByPublicKey(s, key));*/
+		System.out.println(decryptByPublicKey(s, key));*//*
+
         String publicKey = "MGcwDQYJKoZIhvcNAQEBBQADVgAwUwJMAPDd8+uXERCPzaQHox1NXv/hts8USnUY5VMKUJoWBhzXb/XapNXJlvwnQ3HGUP/RAKiwIxMjFQotYhBlNY9Lt01kkfe6FD0eU/cmmQIDAQAB";
         String privateKey = "MIIBbAIBAAJMAPDd8+uXERCPzaQHox1NXv/hts8USnUY5VMKUJoWBhzXb/XapNXJlvwnQ3HGUP/RAKiwIxMjFQotYhBlNY9Lt01kkfe6FD0eU/cmmQIDAQABAkwAgEZT3sWHCwDqjU6b6cEItNEqIEI4HQBzMLQvlL/h5X4+W/pjCn9XjsoeD3+ovM7Cprm3ghllZLxWofKdZbxNIZZ6cY3EAsi85+x5AiYPlkow+YZQeJx/OKafXMhq+F949HwYuiRroPtLKtuap6IdQ5HzdwImD3P34UaMbrMM3/pm7mqjJCSaJQ0ylvq31aLTz6TAYJNJChLPmm8CJgWsAsNfiWiu+wOwcbF76dJDHzq8fIvi8G3Z3pezuMXGSk+rzuhxAiYKUG5QF8WeEbZzPPA9DEIt2pxkRKXSri/L0W2s95tMGqKyrZGR0wImATP6rJW3AJu0+09uX7W264brI//o5vO4+IONFDHpCAKI7YJBJ5Y=";
         String encrypted = RSAUtils.encryptByPublicKey("", publicKey);
@@ -400,3 +435,4 @@ public class RSAUtils {
     }
 
 }
+*/

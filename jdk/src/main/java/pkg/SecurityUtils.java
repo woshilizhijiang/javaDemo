@@ -1,3 +1,4 @@
+/*
 package pkg;
 
 import java.security.InvalidKeyException;
@@ -22,11 +23,13 @@ public class SecurityUtils {
     Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
   }
 
-  /**
+  */
+/**
    * 初始化HmacSHA256的密钥
    *
    * @return byte[] 密钥
-   */
+   *//*
+
   public static byte[] initAES256Key() throws NoSuchAlgorithmException {
 
     // 初始化KeyGenerator
@@ -60,11 +63,13 @@ public class SecurityUtils {
     return sb.toString();
   }
 
-  /**
+  */
+/**
    * 初始化HmacSHA256的密钥
    *
    * @return byte[] 密钥
-   */
+   *//*
+
   public static byte[] initHmacSHA256Key() throws NoSuchAlgorithmException {
 
     // 初始化KeyGenerator
@@ -76,13 +81,15 @@ public class SecurityUtils {
     return secretKey.getEncoded();
   }
 
-  /**
+  */
+/**
    * HmacSHA256消息摘要
    *
    * @param data 待做摘要处理的数据
    * @param key 密钥
    * @return byte[] 消息摘要
-   */
+   *//*
+
   public static byte[] encodeHmacSHA256(byte[] data, byte[] key) {
     // 还原密钥，因为密钥是以byte形式为消息传递算法所拥有
     SecretKey secretKey = new SecretKeySpec(key, "HmacSHA256");
@@ -103,12 +110,14 @@ public class SecurityUtils {
     return mac.doFinal(data);
   }
 
-  /**
+  */
+/**
    * @param data
    * @param key
    * @return 为Hex大写字符
    * @throws Exception
-   */
+   *//*
+
   public static String encodeHmacSHA256HexUpper(String data, byte[] key) {
     try {
       return AESUtil.bytesToHexString(encodeHmacSHA256(data.getBytes(ENCODE), key)).toUpperCase(Locale.US);
@@ -117,11 +126,13 @@ public class SecurityUtils {
     }
   }
 
-  /**
+  */
+/**
    * @param data to be encrypted
    * @param key password for encryption
    * @return encrypted data
-   */
+   *//*
+
   public static byte[] encrypt(byte[] data, byte[] key) {
 
     // Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
@@ -141,11 +152,13 @@ public class SecurityUtils {
     }
   }
 
-  /**
+  */
+/**
    * @param data to be decrypted
    * @param key password for decryption
    * @return decrypted data
-   */
+   *//*
+
   public static byte[] decrypt(byte[] data, byte[] key) {
     // Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
     try {
@@ -163,24 +176,30 @@ public class SecurityUtils {
     }
   }
 
-  /**
+  */
+/**
    * @param @return 为Hex大写字符 @throws
-   */
+   *//*
+
   public static String encodeHexUpper(byte[] data) {
     return AESUtil.bytesToHexString(data).toUpperCase(Locale.US);
   }
 
-  /**
+  */
+/**
    * @param str 为Hex大写字符 @return 正常字符 @throws
-   */
+   *//*
+
   public static byte[] decodeHexUpper(String str) {
 
     return Hex.decode(str.toLowerCase(Locale.US));
   }
 
-  /**
+  */
+/**
    * @param str 为Hex大写字符 @return 正常字符 @throws
-   */
+   *//*
+
   public static String decodeHexUpper(String str, String charsetName) {
     try {
       return new String(Hex.decode(str.toLowerCase(Locale.US)), charsetName);
@@ -190,12 +209,14 @@ public class SecurityUtils {
 
   }
 
-  /**
+  */
+/**
    * @param data 普通字符
    * @param key
    * @return 为Hex大写字符
    * @throws Exception
-   */
+   *//*
+
   public static String encodeAES256HexUpper(String data, byte[] key) {
     try {
       return encodeHexUpper(encrypt(data.getBytes(ENCODE), key));
@@ -204,12 +225,14 @@ public class SecurityUtils {
     }
   }
 
-  /**
+  */
+/**
    * @param data 为Hex大写字符
    * @param key
    * @return 普通字符
    * @throws Exception
-   */
+   *//*
+
   public static String decodeAES256HexUpper(String data, byte[] key) {
     try {
       return new String(decrypt(Hex.decode(data.toLowerCase(Locale.US)), key), ENCODE);
@@ -219,3 +242,4 @@ public class SecurityUtils {
   }
 
 }
+*/
