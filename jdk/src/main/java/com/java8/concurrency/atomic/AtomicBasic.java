@@ -17,10 +17,10 @@ public class AtomicBasic {
 
     public static void main(String[] args) {
         //AtomicReference测试
-//        User user = new User("conan", 15);
-//        atomicUserRef.set(user);
-//        System.out.println(atomicUserRef.get().getName());
-//        System.out.println(atomicUserRef.get().getOld());
+        User user = new User("conan", 15);
+        atomicUserRef.set(user);
+        System.out.println(atomicUserRef.get().getName());
+        System.out.println(atomicUserRef.get().getOld());
 //
 //        System.out.println("*********************************************************");
 //

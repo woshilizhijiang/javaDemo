@@ -1,9 +1,6 @@
 package com.java8.concurrency.concurTool;
 
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
+import java.util.concurrent.*;
 
 /**
  * 线程信号量
@@ -17,17 +14,14 @@ public class SemaphoreTest {
     public static void main(String[] args) {
 
         for (int i=0; i <THREAD_COUNT; i++){
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    try {
-                        s.acquire();
-//                        System.out.println(Thread.currentThread().getName());
-                        System.out.println("save data");
-                        s.release();
-                    }catch (InterruptedException e){
-                        e.printStackTrace();
-                    }
+            threadPool.execute(()->{
+                try {
+                    s.acquire();
+                    System.out.println(Thread.currentThread().getName() + "save data");
+                    TimeUnit.SECONDS.sleep(2);
+                    s.release();
+                }catch (InterruptedException e){
+                    e.printStackTrace();
                 }
             });
         }

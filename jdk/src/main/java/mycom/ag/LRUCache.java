@@ -2,6 +2,11 @@ package mycom.ag;
 
 import java.util.HashMap;
 
+/**
+ * LRU算法实现：
+ *
+ *
+ */
 public class LRUCache {
     private Node head;
     private Node end;

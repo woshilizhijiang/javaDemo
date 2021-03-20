@@ -50,6 +50,10 @@ public class JedisClusterDemo {
         for (String k:clusterNodes.keySet()) {
             JedisPool jp = clusterNodes.get(k);
             Jedis connection = jp.getResource();
+            connection.multi();
+            connection.multi().exec();
+            connection.multi().discard();
+            connection.multi().unwatch();
             try {
                 keys.addAll(connection.keys(keyM));
             }finally {

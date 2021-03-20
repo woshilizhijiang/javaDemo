@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class threadLocalDemo {
+public class ThreadLocalDemo {
 
     static final ThreadLocal<Integer> tlRandom = new ThreadLocal<Integer>(){
         @Override

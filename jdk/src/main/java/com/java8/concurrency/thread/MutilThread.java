@@ -6,7 +6,8 @@ import java.lang.management.ThreadMXBean;
 
 /**
  * JMX查询一个普通线程包含哪些线程
- *
+ * [6] Monitor Ctrl-Break
+ * [5] Attach Listener
  * [4] Signal Dispatcher    分发处理发送给JVM信号的线程
  * [3] Finalizer            调用对象finalize方法
  * [2] Reference Handler    清除Reference

@@ -22,6 +22,8 @@
     </modules>
 
     <dependencies>
+
+
         <!-- https://mvnrepository.com/artifact/com.google.protobuf/protobuf-java -->
         <dependency>
             <groupId>com.google.protobuf</groupId>
