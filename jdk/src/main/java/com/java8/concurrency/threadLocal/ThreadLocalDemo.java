@@ -37,22 +37,22 @@ public class ThreadLocalDemo {
         int i =  aa.getAndAdd(0x61c88647) & (16 - 1);
         System.out.println(i);
 
-//        System.out.println(atLocal.get());
-//        atLocal.get();
-//        atLocal.set(12);
-//        System.out.println(atLocal.get());
-//        atLocal.remove();
-//        System.out.println(atLocal.get());
+        System.out.println(atLocal.get());
+        atLocal.get();
+        atLocal.set(12);
+        System.out.println(atLocal.get());
+        atLocal.remove();
+        System.out.println(atLocal.get());
 
 
-//        tlRandom.set(2);
-//        int a = tlRandom.get();
-//
-//        System.out.println(nextId);
-//        threadId.set(5);
-//        System.out.println(nextId);
-//        System.out.println(threadId.get());
-//        System.out.println(nextId);
+        tlRandom.set(2);
+        int a = tlRandom.get();
+
+        System.out.println(nextId);
+        threadId.set(5);
+        System.out.println(nextId);
+        System.out.println(threadId.get());
+        System.out.println(nextId);
 
 
     }
