@@ -5,25 +5,35 @@ import java.util.concurrent.*;
 
 public class BankWaterService implements Runnable {
 
-    private CyclicBarrier c =  new CyclicBarrier(4, this);
+    private CyclicBarrier cyclicBarrier =  new CyclicBarrier(4, this);
 
-    private Executor executor = Executors.newFixedThreadPool(4);
+    private int corePoolSize = 4;
+
+    private int maximumPoolSize = 4;
+
+    private int keepAliveTime = 4;
+
+    private Executor executor = new ThreadPoolExecutor(
+            corePoolSize,
+            maximumPoolSize,
+            keepAliveTime,
+            TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy());
 
     private ConcurrentHashMap<String,Integer> sheetBankWaterCount = new ConcurrentHashMap<>();
 
     private void count(){
         for (int i = 0;i < 4; i++){
-            executor.execute(new Runnable() {
-                @Override
-                public void run() {
-                    sheetBankWaterCount.put(Thread.currentThread().getName(), 1);
-                    try {
-                        c.await();
-                        System.out.println(c.getNumberWaiting());
-                        System.out.println(c.isBroken());
-                    }catch (InterruptedException | BrokenBarrierException e){
-                        e.printStackTrace();
-                    }
+            executor.execute(() -> {
+                sheetBankWaterCount.put(Thread.currentThread().getName(), 1);
+                try {
+                    cyclicBarrier.await();
+                    System.out.println(cyclicBarrier.getNumberWaiting());
+                    System.out.println(cyclicBarrier.isBroken());
+                }catch (InterruptedException | BrokenBarrierException e){
+                    e.printStackTrace();
                 }
             });
         }

@@ -7,9 +7,14 @@ public class ExchangerTest {
     private static final Exchanger<String> exgr = new Exchanger<>();
 //    private static ExecutorService threadPool = Executors.newFixedThreadPool(2);
 
-    private static ExecutorService threadPool = new ThreadPoolExecutor(2, 2,
-            0L, TimeUnit.MILLISECONDS,
-            new LinkedBlockingQueue<Runnable>(),Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
+    private static ExecutorService threadPool = new ThreadPoolExecutor(
+            2,
+            2,
+            0L,
+            TimeUnit.MILLISECONDS,
+            new LinkedBlockingQueue<Runnable>(),
+            Executors.defaultThreadFactory(),
+            new ThreadPoolExecutor.AbortPolicy());
 
     public static void main(String[] args) {
         threadPool.execute(()-> {

@@ -5,6 +5,7 @@ public class T03_ExecuteReOrder_Code {
     private static int a = 0, b = 0;
 
     public static void main(String[] args) throws InterruptedException {
+        System.out.println(Thread.currentThread().getId());
         int i = 0;
         for (;;) {
             i++;
@@ -18,6 +19,8 @@ public class T03_ExecuteReOrder_Code {
                 b = 1;
                 y = b;
             });
+            System.out.println("t1 " + t1.getId());
+            System.out.println("t2 " + t2.getId());
             t1.start();
             t2.start();
             t1.join();

@@ -23,16 +23,13 @@ public class ThreadTools {
      * 同步屏障
      */
     public static void cyclicBarrierTest(){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    cb.await();
-                }catch (Exception e){
-                    e.printStackTrace();
-                }
-                System.out.println(1);
+        new Thread(() -> {
+            try {
+                cb.await();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+            System.out.println(1);
         }).start();
         try {
             cb.await();
