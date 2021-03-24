@@ -18,10 +18,6 @@ import io.netty.handler.logging.LoggingHandler;
 
 public class SubReqServer {
 
-public static void dd(String ... arg){
-
-}
-
     public void bind(int port) throws Exception{
         //配置服务端NIO线程组
         /**
@@ -54,11 +50,10 @@ public static void dd(String ... arg){
                             sc.pipeline().addLast(new ProtobufVarint32LengthFieldPrepender());
                             sc.pipeline().addLast(new ProtobufEncoder());
                             sc.pipeline().addLast(new SubReqServerHandler());
-
                         }
                     });
             //绑定端口，同步等待成功
-            ChannelFuture f = b.bind().sync();
+            ChannelFuture f = b.bind(port).sync();
             //等待服务端监听端口
             f.channel().closeFuture().sync();
         }finally {
@@ -70,7 +65,6 @@ public static void dd(String ... arg){
 
     public static void main(String[] args) throws Exception {
         int port = 8808;
-        new TimeServer().bind(port);
-        SubReqServer.dd("a","b");
+        new SubReqServer().bind(port);
     }
 }
