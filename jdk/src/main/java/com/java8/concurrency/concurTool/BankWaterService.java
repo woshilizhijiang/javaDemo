@@ -7,11 +7,11 @@ public class BankWaterService implements Runnable {
 
     private CyclicBarrier cyclicBarrier =  new CyclicBarrier(4, this);
 
-    private int corePoolSize = 4;
+    private int corePoolSize = 2;
 
-    private int maximumPoolSize = 4;
+    private int maximumPoolSize = 2;
 
-    private int keepAliveTime = 4;
+    private int keepAliveTime = 0;
 
     private Executor executor = new ThreadPoolExecutor(
             corePoolSize,

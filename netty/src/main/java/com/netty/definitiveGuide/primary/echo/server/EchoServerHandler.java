@@ -15,6 +15,8 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
         body += "$_";
         ByteBuf resp = Unpooled.copiedBuffer(body.getBytes());
         ctx.writeAndFlush(resp);
+        ctx.flush();
+        ctx.close();
     }
 
     @Override

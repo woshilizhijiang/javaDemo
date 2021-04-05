@@ -8,10 +8,11 @@ public class BytebufDemo {
 
 
     public static void main(String[] args) {
-        String aa = "lizj11";
-        for (int i = 0; i < 10 ;i++){
-            aa = aa + aa;
+        StringBuilder stringBuilder = new StringBuilder("lizj11");
+        for (int i = 0; i < 600 ;i++){
+            stringBuilder.append("lizhj11");
         }
+        String aa = stringBuilder.toString();
 
 
         int loop = 3000000;

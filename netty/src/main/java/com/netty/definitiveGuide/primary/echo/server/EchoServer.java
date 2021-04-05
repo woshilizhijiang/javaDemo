@@ -21,15 +21,14 @@ public class EchoServer {
             ServerBootstrap b = new ServerBootstrap();
             b.group(bossGroup,workGroup)
                     .channel(NioServerSocketChannel.class)
-                    .option(ChannelOption.SO_BACKLOG,100)
+                    .option(ChannelOption.SO_BACKLOG,128)
                     .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             ByteBuf delimiter = Unpooled.copiedBuffer("$_".getBytes());
-                            socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
+//                            socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
                             socketChannel.pipeline().addLast(new StringDecoder());
-                            socketChannel.pipeline().addLast(new EchoServerHandler());
                         }
                     });
 
