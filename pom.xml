@@ -19,6 +19,7 @@
         <module>jdk1.7</module>
         <module>excel</module>
         <module>mydisruptor</module>
+        <module>algorithm</module>
     </modules>
 
     <dependencies>

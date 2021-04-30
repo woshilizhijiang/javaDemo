@@ -13,7 +13,7 @@ public class BankWaterService implements Runnable {
 
     private int keepAliveTime = 0;
 
-    private Executor executor = new ThreadPoolExecutor(
+    private ExecutorService executor = new ThreadPoolExecutor(
             corePoolSize,
             maximumPoolSize,
             keepAliveTime,
@@ -35,6 +35,9 @@ public class BankWaterService implements Runnable {
                 }catch (InterruptedException | BrokenBarrierException e){
                     e.printStackTrace();
                 }
+            });
+            Future<String> future = executor.submit(()->{
+                return "";
             });
         }
     }

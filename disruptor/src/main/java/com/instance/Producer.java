@@ -6,8 +6,7 @@ import com.lmax.disruptor.dsl.Disruptor;
 import com.lmax.disruptor.dsl.ProducerType;
 
 import java.nio.ByteBuffer;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 
 public class Producer {
 
@@ -28,11 +27,24 @@ public class Producer {
     }
 
     public static void main(String[] args) throws InterruptedException{
-        Executor executor = Executors.newFixedThreadPool(5);
+        int corePoolSize = 2;
+        int maxiMumPoolSize = 5;
+        int blockQueueSize = 200;
+        long keepAliveTime = 0L;
+
+        Executor executor = new ThreadPoolExecutor(
+                corePoolSize,
+                maxiMumPoolSize,
+                keepAliveTime,
+                TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue(blockQueueSize),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
+
         PCDataFactory factory = new PCDataFactory();
         int bufferSize = 1024;
 
-        Disruptor<PCData> disruptor = new Disruptor<PCData>(factory,
+        Disruptor<PCData> disruptor = new Disruptor<>(factory,
                 bufferSize,
                 executor,
                 ProducerType.MULTI,
