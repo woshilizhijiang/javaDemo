@@ -1,9 +1,9 @@
 package com.java8.lamda;
 
 
+import org.junit.Test;
+
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -24,8 +24,7 @@ import java.util.function.Predicate;
 public class LambdaDemo {
     public static void main(String[] args) {
         LambdaDemo lr = new LambdaDemo();
-        lr.lambdaForeachlist();
-
+        lr.lambdaForeachList();
         List<String> languages = Arrays.asList("Java", "Scala", "C++", "Haskell", "Lisp");
         System.out.println("Languages which starts with J :");
         filter(languages, (str) -> ((String)str).startsWith("J") );
@@ -52,13 +51,6 @@ public class LambdaDemo {
                 System.out.println(name + " ");
             }
         }
-
-//        names.forEach((name) -> {
-//            if (condition.test(name)){
-//                System.out.println(name + " ");
-//            }
-//        });
-
     }
 
 
@@ -66,62 +58,47 @@ public class LambdaDemo {
         Comparator<Apple> byWeight = new Comparator<Apple>() {
             @Override
             public int compare(Apple a1, Apple a2) {
-
                 return a1.getWeight().compareTo(a2.getWeight());
             }
         };
-
         //Lambda
         Comparator<Apple> byWeightLambda = (Apple a1, Apple a2) -> a1.getWeight().compareTo(a2.getWeight());
-
         System.out.println(byWeight);
-
     }
 
     /**
      * lambda实现Runnable
      *  @author lizj11
      */
-    private void lambdaRunnable(){
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println(Thread.currentThread().getName() + " : Before Java8, too much code for too little to do");
-//            }
-//        },"Thread1").start();
-        new Thread(
-                ()-> System.out.println(Thread.currentThread().getName() + " : In Java8, Lamda expression rocks!!"),
+    @Test
+    public void lambdaRunnable(){
+        new Thread(()-> System.out.println(Thread.currentThread().getName() + " : In Java8, Lamda expression rocks!!"),
                 "Thread2").start();
     }
 
     private void lambdaTrans(){
         JButton show = new JButton("Show");
-//        show.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent e) {
-//                System.out.println("Event handling without lambda expression is boring");
-//            }
-//        });
-
         show.addActionListener((e) -> {
             System.out.println("Light, Camera, Action !! Lambda expressions Rocks");
         });
-
     }
 
-    private void lambdaForeachlist(){
-
+    @Test
+    public void lambdaForeachList(){
         List<String> features = Arrays.asList("Lambdas", "Default Method", "Stream API", "Date and Time API");
 //        for (String feature : features) {
 //            System.out.println(feature);
 //        }
         System.out.println("******************************************************************");
-
         //lambda表达式
-        features.forEach((n)->System.out.println(n));
+//        features.forEach((n)->System.out.println(n));
         // 使用Java 8的方法引用更方便，方法引用由::双冒号操作符标示，
         // 看起来像C++的作用域解析运算符
 //        features.forEach(System.out::println);
+
+        features.stream().map(ss ->{
+            return ss + " 007 ,";
+        }).forEach(System.out::print);
     }
 
 }
