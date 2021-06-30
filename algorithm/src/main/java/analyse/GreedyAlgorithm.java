@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
  * 思路 建立小根堆，
  * 荣耀类似算法题：贪心算法
  */
-public class SolutionT001 {
+public class GreedyAlgorithm {
     /**
      * 安排会议室，要求时间长优先，时间早优先
      8,10

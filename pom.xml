@@ -21,6 +21,7 @@
         <module>mydisruptor</module>
         <module>algorithm</module>
         <module>jython</module>
+        <module>toolmoudles</module>
     </modules>
 
     <dependencies>
